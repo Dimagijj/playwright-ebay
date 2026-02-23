@@ -1,0 +1,34 @@
+{
+  "name": "playwright-ebay",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript project for eBay testing with POM structure and cross-browser support",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:mobile-chrome": "playwright test --project=mobile-chrome",
+    "test:mobile-safari": "playwright test --project=mobile-safari",
+    "test:all-browsers": "playwright test --project=chromium --project=firefox --project=webkit",
+    "test:specific": "playwright test",
+    "report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "ebay",
+    "automation",
+    "testing",
+    "cross-browser"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.0",
+    "typescript": "^5.7.3"
+  }
+}
