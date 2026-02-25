@@ -29,8 +29,7 @@ test.describe('eBay Product Display functionalities', () => {
     });
 
     test('should search and select the product sucessfully and redirect to product page', async ({ page }) => {
-       const productTab = await navigateToProduct(page,
-       testData.searchKeywords.walletName);
+       const productTab = await navigateToProduct(page,testData.searchKeywords.walletName);
        expect(productTab).toHaveURL(/\/itm\//);
     });
 
@@ -44,7 +43,7 @@ test.describe('eBay Product Display functionalities', () => {
     test('Verify the Related product section is visible on the product detail page', async ({ page }) => {
         const productTab = await navigateToProduct(page,testData.searchKeywords.walletName);
         const newProductPage = new ProductPage(productTab);
-        const relatedProductsSection = newProductPage.getRelatedProductsSection();
+        const relatedProductsSection = await newProductPage.getRelatedProductsSection();
         await expect(relatedProductsSection).toBeVisible();
     });
         
