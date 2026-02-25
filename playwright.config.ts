@@ -23,6 +23,7 @@ export default defineConfig({
     headless: true,
     actionTimeout: 10000,
     navigationTimeout: 30000,
+    viewport:null
   },
 
   projects: [
@@ -46,6 +47,7 @@ export default defineConfig({
         ...devices['Desktop Safari'],
         headless: true,
       },
+      
     },
   
   ],

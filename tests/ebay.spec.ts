@@ -1,19 +1,17 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
-import { SearchResultsPage } from '../pages/SearchResultsPage';
 import { ProductPage } from '../pages/ProductPage';
 import { AdvancedSearchPage } from '../pages/AdvancedSearchPage';
 import { testData } from '../utils/testData';
+import { navigateToProduct } from '../utils/TestHelpers';
 //declare variables for page objects
 let homePage: HomePage;
-let searchResultsPage: SearchResultsPage;
 let productPage: ProductPage;
 let advancedSearchPage: AdvancedSearchPage;
 
 //use beforeEach to initialize page objects before each test
 test.beforeEach(async ({ page }) => {
-  homePage = new HomePage(page);
-  searchResultsPage = new SearchResultsPage(page);
+  homePage = new HomePage(page);   
   productPage = new ProductPage(page);
   advancedSearchPage = new AdvancedSearchPage(page);
 });
@@ -24,7 +22,7 @@ test.beforeAll(async () => {
 test.afterAll(async () => {
     console.log('eBay test suite completed!');
 });
-test.describe('eBay Product Display fucntionalities', () => {
+test.describe('eBay Product Display functionalities', () => {
     test('should load eBay home page successfully', async ({ page }) => {
         await page.setViewportSize({ width: 1920, height: 1080 });
         await homePage.open();
@@ -33,20 +31,44 @@ test.describe('eBay Product Display fucntionalities', () => {
     
     });
 
-    test('should search and select the product sucessfully', async ({ page }) => {
-        await homePage.searchAndSelectProduct(testData.searchKeywords.walletName);
-
+    test('should search and select the product sucessfully and redirect to product page', async ({ page }) => {
+       const productTab = await navigateToProduct(page,
+       testData.searchKeywords.walletName);
+       expect(productTab).toHaveURL(/\/itm\//);
     });
 
-    test('should display correct product detail page', async ({ page }) => {
-        const productText = await homePage.getPrductText();
-        const [newPage] = await Promise.all([
-        page.context().waitForEvent('page')]);
-        await newPage.waitForLoadState();
-        expect(productText).toContain(testData.searchKeywords.walletName);  
-   });
+    test('should display correct title on product detail page', async ({ page }) => {
+       const productTab = await navigateToProduct(page,testData.searchKeywords.walletName);
+       const newProductPage = new ProductPage(productTab);
+       const productTitle = await newProductPage.getProductTitle();
+       expect(productTitle).toContain(testData.searchKeywords.walletName);
+    });
+     
+    test('Verify the Related product section is visible on the product detail page', async ({ page }) => {
+        const productTab = await navigateToProduct(page,testData.searchKeywords.walletName);
+        const newProductPage = new ProductPage(productTab);
+        const relatedProductsSection = newProductPage.getRelatedProductsSection();
+        await expect(relatedProductsSection).toBeVisible();
+    });
+        
+    test('Verify if the Related product catagory is same as Main Product catagory', async ({ page }) => {
+        const productTab = await navigateToProduct(page,testData.searchKeywords.walletName);
+        const newProductPage = new ProductPage(productTab);
+        const mainProductCategory = await newProductPage.getCategoryFromJsonLD();
+        const relatedLinks = await newProductPage.getRelatedProductLinks(1);
 
-//     test('should search using Enter key', async ({ page }) => {
+        expect(relatedLinks.length).toBeGreaterThan(0);
+
+       // Validate first related product only
+        const link = relatedLinks[0];
+        if (link) {
+          await productTab.goto(link, { waitUntil: 'domcontentloaded', timeout: 15000 });
+          const relatedCategory = await newProductPage.getCategoryFromJsonLD();
+          expect(relatedCategory).toBe(mainProductCategory); 
+        }
+    });
+
+    test('Verify if the related product is the same price range ', async ({ page }) => {
 //         await homePage.open();
 //         await homePage.searchWithEnter(testData.searchKeywords.smartphone);
         

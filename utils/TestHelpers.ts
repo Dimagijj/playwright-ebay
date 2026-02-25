@@ -1,23 +1,24 @@
 import { Page } from '@playwright/test';
+import { HomePage } from '../pages/HomePage';
+import { ProductPage } from '../pages/ProductPage';
 
-export class TestHelpers {
-    static generateRandomString(length: number = 8): string {
-        return Math.random().toString(36).substring(2, length + 2);
-    }
 
-    static generateRandomNumber(min: number, max: number): number {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+export async function navigateToProduct(
+  page: Page,
+  productName: string
+): Promise<Page> {
 
-    static async takeScreenshot(page: Page, name: string): Promise<void> {
-        await page.screenshot({ path: `screenshots/${name}.png`, fullPage: true });
-    }
+  const homePage = new HomePage(page);
+  
+  await homePage.open();
 
-    static async waitForPageLoad(page: Page): Promise<void> {
-        await page.waitForLoadState('networkidle');
-    }
+  // Wait for new tab BEFORE clicking
+  const [newPage] = await Promise.all([
+    page.waitForEvent('popup'),
+    homePage.searchAndSelectProduct(productName)
+  ]);
 
-    static formatPrice(price: string): string {
-        return price.replace(/[^0-9.]/g, '');
-    }
+  await newPage.waitForLoadState();
+
+  return newPage;
 }
