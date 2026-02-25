@@ -9,9 +9,7 @@ playwright-ebay/
 ├── pages/                  # Page Object Model (TypeScript)
 │   ├── BasePage.ts
 │   ├── HomePage.ts
-│   ├── SearchResultsPage.ts
-│   ├── ProductPage.ts
-│   └── AdvancedSearchPage.ts
+│   └── ProductPage.ts
 ├── tests/                  # Test specifications (TypeScript)
 │   └── ebay.spec.ts       # All test cases
 ├── utils/                  # Utilities and helpers
@@ -32,12 +30,19 @@ Comprehensive documentation available in `/Manual documentation` which includes 
 ## ✨ Features
 - **TypeScript** - Type safety and better IDE support
 - **Page Object Model** - Maintainable test architecture
-- **Cross-Browser Testing** - Chromium, Firefox, WebKit
+- **Cross-Browser Testing** - Chromium, Firefox
 - **Independent Tests** - Each test runs independently
 - **Centralized Test Data** - Easy data management
 - **Before/After Hooks** - Setup and teardown
 - **HTML Reports** - Screenshots and videos on failure
 - **Retry Mechanism** - Handles flaky tests
+
+## 📈 Reports
+- **HTML Report**: `playwright-report/index.html`
+- **JSON Report**: `test-results.json`
+- **Screenshots**: Captured on failure
+- **Videos**: Retained on failure
+- **Traces**: Available on first retry
 
 ## 🚀 Installation
 
@@ -95,9 +100,8 @@ npm run report
 ## 🌐 Cross-Browser Configuration
 
 Configured browsers:
-- **Chromium** - Runs in headed mode
+- **Chromium** - Runs in headless mode
 - **Firefox** - Runs headless
-- **WebKit** - Runs headless
 
 Modify `playwright.config.ts` to change browser settings.
 
@@ -115,19 +119,13 @@ await homePage.searchProduct(testData.searchKeywords.laptop);
 ## 🧩 Page Objects
 
 ### BasePage
-Common methods: navigate, click, fill, getText, isVisible, waitForSelector
+Common methods: navigate, click, fill, getText, waitForSelector, getTitle
 
 ### HomePage
-Search functionality, navigation, category selection
-
-### SearchResultsPage
-View results, get titles/prices, filter options
+Methods: open, searchAndSelectProduct, getPageTitle
 
 ### ProductPage
-Product details, add to cart, seller information
-
-### AdvancedSearchPage
-Keyword search, price range, exclude words
+Methods: getProductTitle, getRelatedProductsSection, getCategoryFromJsonLD, getRelatedProductLinks, getProductPrice, getrelatedItemCount
 
 ## ⚙️ Configuration
 
@@ -145,21 +143,11 @@ workers: undefined,
 fullyParallel: true,
 ```
 
-## 📈 Reports
-- **HTML Report**: `playwright-report/index.html`
-- **JSON Report**: `test-results.json`
-- **Screenshots**: Captured on failure
-- **Videos**: Retained on failure
-- **Traces**: Available on first retry
 
 ## 🔧 Utilities
 
 ### TestHelpers
-- `generateRandomString(length)`
-- `generateRandomNumber(min, max)`
-- `takeScreenshot(page, name)`
-- `waitForPageLoad(page)`
-- `formatPrice(price)`
+- `navigateToProduct(page, productName)` - Handles popup navigation to product page
 
 ## 📝 Test Hooks
 

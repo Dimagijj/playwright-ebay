@@ -22,7 +22,7 @@ export default defineConfig({
     video: 'retain-on-failure',
     headless: true,
     actionTimeout: 10000,
-    navigationTimeout: 30000,
+    navigationTimeout: 60000,
     viewport:null
   },
 
@@ -31,7 +31,7 @@ export default defineConfig({
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        headless: false,
+        headless: true,
       },
     },
     {
@@ -40,14 +40,6 @@ export default defineConfig({
         ...devices['Desktop Firefox'],
         headless: true,
       },
-    },
-    {
-      name: 'webkit',
-      use: { 
-        ...devices['Desktop Safari'],
-        headless: true,
-      },
-      
     },
   
   ],

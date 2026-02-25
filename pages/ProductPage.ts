@@ -5,23 +5,18 @@ export class ProductPage extends BasePage {
   private productTitle = "h1.x-item-title__mainTitle";
   private relatedProductsSection = "section:has-text('Similar Items')";
   private productPrice = ".x-price-primary";
-  private addToCartButton = 'a[href*="cart"]';
-  private buyNowButton = 'a[href*="purchaseconfirm"]';
-  private watchButton = 'a[href*="watchlist"]';
-  private sellerInfo = ".x-sellercard-atf__info";
-  private shippingInfo = ".ux-labels-values--shipping";
-  private productImage = ".ux-image-carousel-item img";
-  private quantityInput = 'input[aria-label*="Quantity"]';
 
   constructor(page: Page) {
     super(page);
   }
 
-  getProductTitle(): Promise<string | null> {
+  async getProductTitle(): Promise<string | null> {
+    await this.waitForSelector(this.productTitle);
     return this.getText(this.productTitle);
   }
-  //check if related product section is visible and return the locator if it is otherwise return null
-  getRelatedProductsSection() {
+
+  async getRelatedProductsSection() {
+    await this.page.waitForSelector(this.relatedProductsSection, { timeout: 10000 });
     return this.page.locator(this.relatedProductsSection);
   }
 
@@ -50,42 +45,14 @@ export class ProductPage extends BasePage {
     return links;
   }
 
-  async getProductPrice(): Promise<string | null> {
-    if (await this.isVisible(this.productPrice)) {
-      return await this.getText(this.productPrice);
-    }
-    return null;
+  async getProductPrice(): Promise<number | null> {
+    await this.page.waitForSelector(this.productPrice, { timeout: 10000 });
+    const priceText = await this.page.locator(this.productPrice).first().innerText();
+    const cleanedPrice = priceText.replace(/[^0-9.]/g, '');
+    return Number(cleanedPrice);
   }
 
-  async clickAddToCart(): Promise<void> {
-    if (await this.isVisible(this.addToCartButton)) {
-      await this.click(this.addToCartButton);
-    }
-  }
-
-  async clickBuyNow(): Promise<void> {
-    if (await this.isVisible(this.buyNowButton)) {
-      await this.click(this.buyNowButton);
-    }
-  }
-
-  async clickWatch(): Promise<void> {
-    if (await this.isVisible(this.watchButton)) {
-      await this.click(this.watchButton);
-    }
-  }
-
-  async isSellerInfoVisible(): Promise<boolean> {
-    return await this.isVisible(this.sellerInfo);
-  }
-
-  async isProductImageVisible(): Promise<boolean> {
-    return await this.isVisible(this.productImage);
-  }
-
-  async setQuantity(quantity: number): Promise<void> {
-    if (await this.isVisible(this.quantityInput)) {
-      await this.fill(this.quantityInput, quantity.toString());
-    }
+  async getrelatedItemCount(): Promise<number> {
+    return await this.page.locator(this.relatedProductsSection).count();
   }
 }

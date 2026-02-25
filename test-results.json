@@ -18,7 +18,7 @@
       {
         "outputDir": "C:/playwright-ebay/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 1,
         "metadata": {
           "actualWorkers": 1
         },
@@ -34,28 +34,12 @@
       {
         "outputDir": "C:/playwright-ebay/test-results",
         "repeatEach": 1,
-        "retries": 0,
+        "retries": 1,
         "metadata": {
           "actualWorkers": 1
         },
         "id": "firefox",
         "name": "firefox",
-        "testDir": "C:/playwright-ebay/tests",
-        "testIgnore": [],
-        "testMatch": [
-          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
-        ],
-        "timeout": 30000
-      },
-      {
-        "outputDir": "C:/playwright-ebay/test-results",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
-        "id": "webkit",
-        "name": "webkit",
         "testDir": "C:/playwright-ebay/tests",
         "testIgnore": [],
         "testMatch": [
@@ -89,7 +73,7 @@
     "shard": null,
     "tags": [],
     "updateSnapshots": "missing",
-    "updateSourceMethod": "3way",
+    "updateSourceMethod": "patch",
     "version": "1.58.2",
     "workers": 1,
     "webServer": null
@@ -105,9 +89,278 @@
         {
           "title": "eBay Product Display functionalities",
           "file": "ebay.spec.ts",
-          "line": 28,
+          "line": 22,
           "column": 6,
           "specs": [
+            {
+              "title": "should load eBay home page successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2916,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Starting eBay test suite...\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:48:30.338Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-4d6b9d187456bafc4531",
+              "file": "ebay.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "should search and select the product sucessfully and redirect to product page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8075,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:48:33.562Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-0fbd960cbdc6ad2de4db",
+              "file": "ebay.spec.ts",
+              "line": 31,
+              "column": 9
+            },
+            {
+              "title": "should display correct title on product detail page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9407,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:48:41.649Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-6b61de8c205db99fed27",
+              "file": "ebay.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "Verify the Related product section is visible on the product detail page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 8164,
+                      "error": {
+                        "message": "Error: toBeVisible can be only used with Locator object",
+                        "stack": "Error: toBeVisible can be only used with Locator object\n    at C:\\playwright-ebay\\tests\\ebay.spec.ts:48:46",
+                        "location": {
+                          "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                          "column": 46,
+                          "line": 48
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m         \u001b[36mconst\u001b[39m newProductPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mProductPage\u001b[39m(productTab)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m         \u001b[36mconst\u001b[39m relatedProductsSection \u001b[33m=\u001b[39m newProductPage\u001b[33m.\u001b[39mgetRelatedProductsSection()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m         \u001b[36mawait\u001b[39m expect(relatedProductsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m         \n \u001b[90m 51 |\u001b[39m     test(\u001b[32m'Verify if the Related product catagory is same as Main Product catagory'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                            "column": 46,
+                            "line": 48
+                          },
+                          "message": "Error: toBeVisible can be only used with Locator object\n\n\u001b[0m \u001b[90m 46 |\u001b[39m         \u001b[36mconst\u001b[39m newProductPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mProductPage\u001b[39m(productTab)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m         \u001b[36mconst\u001b[39m relatedProductsSection \u001b[33m=\u001b[39m newProductPage\u001b[33m.\u001b[39mgetRelatedProductsSection()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m         \u001b[36mawait\u001b[39m expect(relatedProductsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m         \n \u001b[90m 51 |\u001b[39m     test(\u001b[32m'Verify if the Related product catagory is same as Main Product catagory'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\playwright-ebay\\tests\\ebay.spec.ts:48:46\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "eBay test suite completed!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:48:51.077Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium\\test-failed-2.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium\\video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                        "column": 46,
+                        "line": 48
+                      }
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9783,
+                      "error": {
+                        "message": "Error: toBeVisible can be only used with Locator object",
+                        "stack": "Error: toBeVisible can be only used with Locator object\n    at C:\\playwright-ebay\\tests\\ebay.spec.ts:48:46",
+                        "location": {
+                          "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                          "column": 46,
+                          "line": 48
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m         \u001b[36mconst\u001b[39m newProductPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mProductPage\u001b[39m(productTab)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m         \u001b[36mconst\u001b[39m relatedProductsSection \u001b[33m=\u001b[39m newProductPage\u001b[33m.\u001b[39mgetRelatedProductsSection()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m         \u001b[36mawait\u001b[39m expect(relatedProductsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m         \n \u001b[90m 51 |\u001b[39m     test(\u001b[32m'Verify if the Related product catagory is same as Main Product catagory'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                            "column": 46,
+                            "line": 48
+                          },
+                          "message": "Error: toBeVisible can be only used with Locator object\n\n\u001b[0m \u001b[90m 46 |\u001b[39m         \u001b[36mconst\u001b[39m newProductPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mProductPage\u001b[39m(productTab)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m         \u001b[36mconst\u001b[39m relatedProductsSection \u001b[33m=\u001b[39m newProductPage\u001b[33m.\u001b[39mgetRelatedProductsSection()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m         \u001b[36mawait\u001b[39m expect(relatedProductsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m         \n \u001b[90m 51 |\u001b[39m     test(\u001b[32m'Verify if the Related product catagory is same as Main Product catagory'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\playwright-ebay\\tests\\ebay.spec.ts:48:46\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Starting eBay test suite...\n"
+                        },
+                        {
+                          "text": "eBay test suite completed!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-02-25T17:49:00.862Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium-retry1\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium-retry1\\test-failed-2.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium-retry1\\video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium-retry1\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium-retry1\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-chromium-retry1\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                        "column": 46,
+                        "line": 48
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-1db10eea33cdad330f98",
+              "file": "ebay.spec.ts",
+              "line": 44,
+              "column": 9
+            },
             {
               "title": "Verify if the Related product catagory is same as Main Product catagory",
               "ok": true,
@@ -121,10 +374,211 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 7,
+                      "workerIndex": 2,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12252,
+                      "duration": 9992,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Starting eBay test suite...\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:49:13.245Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-30214d6c4484d652a915",
+              "file": "ebay.spec.ts",
+              "line": 51,
+              "column": 9
+            },
+            {
+              "title": "Verify if the related product is the same price range ",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11074,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m8.97\u001b[39m\nReceived:    \u001b[31m25.51\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m8.97\u001b[39m\nReceived:    \u001b[31m25.51\u001b[39m\n    at C:\\playwright-ebay\\tests\\ebay.spec.ts:83:38",
+                        "location": {
+                          "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                          "column": 38,
+                          "line": 83
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 81 |\u001b[39m             \u001b[36mif\u001b[39m (relatedPrice \u001b[33m!==\u001b[39m \u001b[36mnull\u001b[39m) {\n \u001b[90m 82 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m0.7\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 83 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m1.3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 84 |\u001b[39m             }\n \u001b[90m 85 |\u001b[39m         }\n \u001b[90m 86 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                            "column": 38,
+                            "line": 83
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m8.97\u001b[39m\nReceived:    \u001b[31m25.51\u001b[39m\n\n\u001b[0m \u001b[90m 81 |\u001b[39m             \u001b[36mif\u001b[39m (relatedPrice \u001b[33m!==\u001b[39m \u001b[36mnull\u001b[39m) {\n \u001b[90m 82 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m0.7\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 83 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m1.3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 84 |\u001b[39m             }\n \u001b[90m 85 |\u001b[39m         }\n \u001b[90m 86 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\playwright-ebay\\tests\\ebay.spec.ts:83:38\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "eBay test suite completed!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:49:23.457Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium\\test-failed-2.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium\\video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                        "column": 38,
+                        "line": 83
+                      }
+                    },
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15601,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m8.97\u001b[39m\nReceived:    \u001b[31m25.51\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m8.97\u001b[39m\nReceived:    \u001b[31m25.51\u001b[39m\n    at C:\\playwright-ebay\\tests\\ebay.spec.ts:83:38",
+                        "location": {
+                          "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                          "column": 38,
+                          "line": 83
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 81 |\u001b[39m             \u001b[36mif\u001b[39m (relatedPrice \u001b[33m!==\u001b[39m \u001b[36mnull\u001b[39m) {\n \u001b[90m 82 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m0.7\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 83 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m1.3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 84 |\u001b[39m             }\n \u001b[90m 85 |\u001b[39m         }\n \u001b[90m 86 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                            "column": 38,
+                            "line": 83
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m8.97\u001b[39m\nReceived:    \u001b[31m25.51\u001b[39m\n\n\u001b[0m \u001b[90m 81 |\u001b[39m             \u001b[36mif\u001b[39m (relatedPrice \u001b[33m!==\u001b[39m \u001b[36mnull\u001b[39m) {\n \u001b[90m 82 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m0.7\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 83 |\u001b[39m                 expect(relatedPrice)\u001b[33m.\u001b[39mtoBeLessThanOrEqual(mainPrice \u001b[33m*\u001b[39m \u001b[35m1.3\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 84 |\u001b[39m             }\n \u001b[90m 85 |\u001b[39m         }\n \u001b[90m 86 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\playwright-ebay\\tests\\ebay.spec.ts:83:38\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Starting eBay test suite...\n"
+                        },
+                        {
+                          "text": "eBay test suite completed!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-02-25T17:49:36.107Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium-retry1\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium-retry1\\test-failed-2.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium-retry1\\video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium-retry1\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium-retry1\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--826f6-ct-is-the-same-price-range--chromium-retry1\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                        "column": 38,
+                        "line": 83
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-55b3057f4e156367e62a",
+              "file": "ebay.spec.ts",
+              "line": 68,
+              "column": 9
+            },
+            {
+              "title": "Verify the count of related products displayed in related product section is upto 6",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8185,
                       "errors": [],
                       "stdout": [
                         {
@@ -136,7 +590,7 @@
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-02-25T12:42:02.646Z",
+                      "startTime": "2026-02-25T17:49:54.888Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -144,9 +598,313 @@
                   "status": "expected"
                 }
               ],
-              "id": "b91aad748d53831699cc-30214d6c4484d652a915",
+              "id": "b91aad748d53831699cc-95c320f39571fc11478f",
               "file": "ebay.spec.ts",
-              "line": 57,
+              "line": 88,
+              "column": 9
+            },
+            {
+              "title": "should load eBay home page successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3364,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Starting eBay test suite...\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:50:04.891Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-e48e1f393b665f2b33a7",
+              "file": "ebay.spec.ts",
+              "line": 23,
+              "column": 9
+            },
+            {
+              "title": "should search and select the product sucessfully and redirect to product page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11232,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:50:08.893Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-e6bcbbc78ee7c0ba2876",
+              "file": "ebay.spec.ts",
+              "line": 31,
+              "column": 9
+            },
+            {
+              "title": "should display correct title on product detail page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11753,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:50:20.140Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-b58bc04c5b13e51482b3",
+              "file": "ebay.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "Verify the Related product section is visible on the product detail page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15370,
+                      "error": {
+                        "message": "Error: toBeVisible can be only used with Locator object",
+                        "stack": "Error: toBeVisible can be only used with Locator object\n    at C:\\playwright-ebay\\tests\\ebay.spec.ts:48:46",
+                        "location": {
+                          "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                          "column": 46,
+                          "line": 48
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m         \u001b[36mconst\u001b[39m newProductPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mProductPage\u001b[39m(productTab)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m         \u001b[36mconst\u001b[39m relatedProductsSection \u001b[33m=\u001b[39m newProductPage\u001b[33m.\u001b[39mgetRelatedProductsSection()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m         \u001b[36mawait\u001b[39m expect(relatedProductsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m         \n \u001b[90m 51 |\u001b[39m     test(\u001b[32m'Verify if the Related product catagory is same as Main Product catagory'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                            "column": 46,
+                            "line": 48
+                          },
+                          "message": "Error: toBeVisible can be only used with Locator object\n\n\u001b[0m \u001b[90m 46 |\u001b[39m         \u001b[36mconst\u001b[39m newProductPage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mProductPage\u001b[39m(productTab)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m         \u001b[36mconst\u001b[39m relatedProductsSection \u001b[33m=\u001b[39m newProductPage\u001b[33m.\u001b[39mgetRelatedProductsSection()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m         \u001b[36mawait\u001b[39m expect(relatedProductsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m     })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m         \n \u001b[90m 51 |\u001b[39m     test(\u001b[32m'Verify if the Related product catagory is same as Main Product catagory'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at C:\\playwright-ebay\\tests\\ebay.spec.ts:48:46\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "eBay test suite completed!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-25T17:50:31.916Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-firefox\\test-failed-1.png"
+                        },
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-firefox\\test-failed-2.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-firefox\\video-1.webm"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-firefox\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-firefox\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\playwright-ebay\\tests\\ebay.spec.ts",
+                        "column": 46,
+                        "line": 48
+                      }
+                    },
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "interrupted",
+                      "duration": 11227,
+                      "error": {
+                        "message": "Error: page.waitForEvent: Target page, context or browser has been closed\n=========================== logs ===========================\nwaiting for event \"popup\"\n============================================================",
+                        "stack": "Error: page.waitForEvent: Target page, context or browser has been closed\n=========================== logs ===========================\nwaiting for event \"popup\"\n============================================================\n    at navigateToProduct (C:\\playwright-ebay\\utils\\TestHelpers.ts:17:10)\n    at C:\\playwright-ebay\\tests\\ebay.spec.ts:45:28",
+                        "location": {
+                          "file": "C:\\playwright-ebay\\utils\\TestHelpers.ts",
+                          "column": 10,
+                          "line": 17
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\utils\\TestHelpers.ts:17\n\n\u001b[0m \u001b[90m 15 |\u001b[39m   \u001b[90m// Wait for new tab BEFORE clicking\u001b[39m\n \u001b[90m 16 |\u001b[39m   \u001b[36mconst\u001b[39m [newPage] \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     page\u001b[33m.\u001b[39mwaitForEvent(\u001b[32m'popup'\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m    |\u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     homePage\u001b[33m.\u001b[39msearchAndSelectProduct(productName)\n \u001b[90m 19 |\u001b[39m   ])\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\playwright-ebay\\utils\\TestHelpers.ts",
+                            "column": 10,
+                            "line": 17
+                          },
+                          "message": "Error: page.waitForEvent: Target page, context or browser has been closed\n=========================== logs ===========================\nwaiting for event \"popup\"\n============================================================\n\n\u001b[90m   at \u001b[39m..\\utils\\TestHelpers.ts:17\n\n\u001b[0m \u001b[90m 15 |\u001b[39m   \u001b[90m// Wait for new tab BEFORE clicking\u001b[39m\n \u001b[90m 16 |\u001b[39m   \u001b[36mconst\u001b[39m [newPage] \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m \u001b[33mPromise\u001b[39m\u001b[33m.\u001b[39mall([\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 17 |\u001b[39m     page\u001b[33m.\u001b[39mwaitForEvent(\u001b[32m'popup'\u001b[39m)\u001b[33m,\u001b[39m\n \u001b[90m    |\u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 18 |\u001b[39m     homePage\u001b[33m.\u001b[39msearchAndSelectProduct(productName)\n \u001b[90m 19 |\u001b[39m   ])\u001b[33m;\u001b[39m\n \u001b[90m 20 |\u001b[39m\u001b[0m\n\u001b[2m    at navigateToProduct (C:\\playwright-ebay\\utils\\TestHelpers.ts:17:10)\u001b[22m\n\u001b[2m    at C:\\playwright-ebay\\tests\\ebay.spec.ts:45:28\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Starting eBay test suite...\n"
+                        },
+                        {
+                          "text": "eBay test suite completed!\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2026-02-25T17:50:50.177Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\playwright-ebay\\test-results\\ebay-eBay-Product-Display--c7d54--on-the-product-detail-page-firefox-retry1\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\playwright-ebay\\utils\\TestHelpers.ts",
+                        "column": 10,
+                        "line": 17
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "b91aad748d53831699cc-dab40b4176a0198688d2",
+              "file": "ebay.spec.ts",
+              "line": 44,
+              "column": 9
+            },
+            {
+              "title": "Verify if the Related product catagory is same as Main Product catagory",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b91aad748d53831699cc-b67d5237477f601af0fe",
+              "file": "ebay.spec.ts",
+              "line": 51,
+              "column": 9
+            },
+            {
+              "title": "Verify if the related product is the same price range ",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b91aad748d53831699cc-6ac59d46da877f15e86a",
+              "file": "ebay.spec.ts",
+              "line": 68,
+              "column": 9
+            },
+            {
+              "title": "Verify the count of related products displayed in related product section is upto 6",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b91aad748d53831699cc-66eff8252f8a3c560240",
+              "file": "ebay.spec.ts",
+              "line": 88,
               "column": 9
             }
           ]
@@ -156,11 +914,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-02-25T12:41:59.402Z",
-    "duration": 16609.381000000983,
-    "expected": 1,
-    "skipped": 0,
-    "unexpected": 0,
+    "startTime": "2026-02-25T17:48:28.651Z",
+    "duration": 154136.565,
+    "expected": 8,
+    "skipped": 3,
+    "unexpected": 3,
     "flaky": 0
   }
 }
